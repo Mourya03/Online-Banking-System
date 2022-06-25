@@ -28,7 +28,7 @@
         ResultSet rs = ps.executeQuery();
 
         if(rs.next()){
-            out.println("Welcome "+uname);
+            out.println("<h1>"+"Welcome "+uname.toUpperCase()+"!</h1>");
         }else{
             out.println("User not Found");
         }
