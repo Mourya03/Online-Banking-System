@@ -1,0 +1,22 @@
+.container{
+    font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue';
+
+}
+a{
+    font-size: 30px;
+    padding: 10px;
+    
+    text-decoration: none;
+}
+.header{
+    background-color: lightblue;
+    color: firebrick;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+.menu{
+    background-color: lightpink;
+    padding: 10px;
+    padding-bottom: 500px;
+    height: 100%;
+}
