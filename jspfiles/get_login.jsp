@@ -28,7 +28,21 @@
         ResultSet rs = ps.executeQuery();
 
         if(rs.next()){
-            out.println("<h1>"+"Welcome "+uname.toUpperCase()+"!</h1>");
+            String name = rs.getString(1);
+            String mail = rs.getString(3);
+            int bal = rs.getInt(4);
+
+            //Creating cookies and adding them into response
+
+            Cookie nameC = new Cookie("name",name);
+            Cookie mailC = new Cookie("mail",mail);
+            Cookie balC = new Cookie("balance",String.valueOf(bal));
+
+            response.addCookie(nameC);
+            response.addCookie(mailC);
+            response.addCookie(balC);
+
+            out.println("<h1>"+"Welcome "+name.toUpperCase()+"!</h1>");
         }else{
             out.println("User not Found");
         }

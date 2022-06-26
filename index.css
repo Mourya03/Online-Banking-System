@@ -1,14 +1,10 @@
 .container{
     font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue';
-
 }
 a{
     font-size: 30px;
-    padding: 10px 30px;
+    padding: 2px;
     text-decoration: none;
-}
-.menu-item:hover{
-    background-color: white;
 }
 .header{
     background-color: lightblue;

@@ -10,8 +10,16 @@
 </head>
 <body>
     <%
-    out.println(name);
+        //getting balance cookie from the request and displaying it
+
+        Cookie cookies[] = request.getCookies();
+        for(int i=0;i<cookies.length;i++){
+                if(cookies[i].getName().compareTo("balance")==0){
+                    out.print("<h3>Your Balance : "+cookies[i].getValue()+"</h3>");
+                    return;
+                }
+        }
+        out.print("<h3>Unable to Fetch the balance!</h3>");
     %>
-    
 </body>
 </html>
