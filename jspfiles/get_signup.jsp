@@ -12,7 +12,7 @@
 
     <%
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase","admin","admin");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase","root","root");
 
         String uname = request.getParameter("uname");
         String pword = request.getParameter("pword");
