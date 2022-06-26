@@ -17,6 +17,7 @@
         String uname = request.getParameter("uname");
         String pword = request.getParameter("pword");
         String email = request.getParameter("email");
+        int balance = 0;
 
         PreparedStatement ps = con.prepareStatement("select * from users where name=?");
         ps.setString(1,uname);
@@ -27,8 +28,8 @@
         }else{
 
         Statement st = con.createStatement();
-        st.executeUpdate("insert into users values('"+uname+"','"+pword+"','"+email+"')");
-        out.println("User created successfully!");
+        st.executeUpdate("insert into users values('"+uname+"','"+pword+"','"+email+"','"+balance+"')");
+        out.println("<h3>User created successfully!</h3>");
 
         }
 

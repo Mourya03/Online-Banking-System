@@ -10,16 +10,40 @@
 </head>
 <body>
     <%
-        //getting balance cookie from the request and displaying it
+        //getting username cookie from the request and displaying it
 
         Cookie cookies[] = request.getCookies();
-        for(int i=0;i<cookies.length;i++){
-                if(cookies[i].getName().compareTo("balance")==0){
-                    out.print("<h3>Your Balance : "+cookies[i].getValue()+"</h3>");
-                    return;
-                }
+        String name = "";
+        
+        try
+        {
+            for(int i=0;i<cookies.length;i++){
+                    if(cookies[i].getName().compareTo("name")==0){
+                        name = cookies[i].getValue();
+                        break;
+                    }
+            }
+        }catch(Exception e){
+            out.print("<h3>Please Login!</h3>");
+            return;
         }
-        out.print("<h3>Unable to Fetch the balance!</h3>");
+
+        if(name.length()==0){
+            out.print("<h3>Unable to Fetch the balance, Please Login!</h3>");
+        }else{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mydatabase","admin","admin");
+            PreparedStatement st = con.prepareStatement("select * from users where name = ? ");
+            st.setString(1,name);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                out.print("<h1>Your Account Balance : "+rs.getString(4)+"</h1>");
+            }else{
+                out.print("<h3>Unable to fetch Balance!</h3>");
+            }
+            con.close();
+        }
+        
     %>
 </body>
 </html>
