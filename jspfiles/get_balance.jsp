@@ -24,7 +24,7 @@
                     }
             }
         }catch(Exception e){
-            out.print("<h3>Please Login!</h3>");
+            out.print("<h3>Welcome Stranger, Please Login!</h3>");
             return;
         }
 
@@ -37,7 +37,8 @@
             st.setString(1,name);
             ResultSet rs = st.executeQuery();
             if(rs.next()){
-                out.print("<h1>Your Account Balance : "+rs.getString(4)+"</h1>");
+                out.print("<h2>Welcome "+name.toUpperCase()+"!</h2>");
+                out.print("<h1>Your Account Balance : $"+rs.getString(4)+"</h1>");
             }else{
                 out.print("<h3>Unable to fetch Balance!</h3>");
             }
