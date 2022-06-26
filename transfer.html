@@ -9,9 +9,9 @@
 <body>
     <h3>Transfer Your Amount</h3>
     <form action="jspfiles/transfer.jsp" method="post">
-        Send to : <input type="text" name="receiver" id="receiver"><br><br>
-        Amount : <input type="number" name="amount" id="amount"><br><br>
-        Date : <input type="text" name="date" id="date" placeholder="dd/mm/yyyy"><br><br>
+        Send to : <input type="text" name="receiver" id="receiver" required><br><br>
+        Amount : <input type="number" name="amount" id="amount" required><br><br>
+        Date : <input type="text" name="date" id="date" placeholder="dd/mm/yyyy" required><br><br>
         <input type="submit" value="TRANSFER">
     </form>
 </body>

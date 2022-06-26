@@ -41,10 +41,13 @@
         return;
     }
 
-    // Add amount to receiver
+    
     Statement st = con.createStatement();
+    // Add amount to receiver
     String toBeAdded = String.valueOf(receiver_balance + amount);
     st.executeUpdate("update users set balance = '"+toBeAdded+"' where users.name = '"+receiver+"' ");
+    
+    // Subtract amount from sender
     String toBeSubtracted = String.valueOf(sender_balance - amount);
     st.executeUpdate("update users set balance = '"+toBeSubtracted+"' where users.name = '"+sender+"' ");
 
@@ -58,5 +61,5 @@
     
     con.close();
 
-    out.print("Transfer Successfull!");
+    out.print("<h3>Transfer Successfull!</h3>");
 %>
